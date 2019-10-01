@@ -31,7 +31,7 @@
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
-			<scope>runtime</scope>
+<!--			<scope>runtime</scope>-->
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -47,6 +47,24 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
+		<extensions>
+			<extension>
+				<groupId>io.packagecloud.maven.wagon</groupId>
+				<artifactId>maven-packagecloud-wagon</artifactId>
+				<version>0.0.6</version>
+			</extension>
+		</extensions>
 	</build>
+	<distributionManagement>
+		<repository>
+			<id>packagecloud.release</id>
+			<url>packagecloud+https://packagecloud.io/poorvibhat/release</url>
+		</repository>
+		<snapshotRepository>
+			<id>packagecloud.snapshot</id>
+			<url>packagecloud+https://packagecloud.io/poorvibhat/snapshot</url>
+		</snapshotRepository>
+	</distributionManagement>
+
 
 </project>
