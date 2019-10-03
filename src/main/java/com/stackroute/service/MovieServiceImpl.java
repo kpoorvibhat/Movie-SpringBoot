@@ -53,7 +53,9 @@ public class MovieServiceImpl implements MovieService {
     }
 
     @Override
-    public List<Movie> findByTitle(String title) {
+    public List<Movie> findByTitle(String title) throws MovieDoesNotExistException{
+        if (movieRepository.findByTitle(title) == null)
+            throw new MovieDoesNotExistException("Movie Not Found");
         return movieRepository.findByTitle(title);
     }
 }
