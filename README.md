@@ -1,5 +1,6 @@
 # Movie-SpringBoot
 
-5. Create custom exceptions TrackNotFoundException, TrackAlreadyExistsException in a
-com.stack....exceptions package. Perform appropriate exception handling and propagation
-back.
+6. Running Logic on Startup in Spring. Create seed data to pre-fill the database with movie
+information whenever the application starts. Use both approaches:
+Approach 1: ApplicationListener<ContextRefreshedEvent>
+Approach 2: CommandLineRunner (Find out how it differs from ApplicationRunner)
