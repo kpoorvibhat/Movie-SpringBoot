@@ -16,4 +16,6 @@ public interface MovieService {
     public Movie updateMovie(Movie movie) /*throws MovieDoesNotExistException*/;
 
     public String deleteMovie(int movieId) /*throws MovieDoesNotExistException*/;
+
+    public Movie findByTitle(String title);
 }

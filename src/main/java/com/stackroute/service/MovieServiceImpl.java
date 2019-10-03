@@ -52,4 +52,8 @@ public class MovieServiceImpl implements MovieService {
         return "Movie deleted";
     }
 
+    @Override
+    public Movie findByTitle(String title) {
+        return movieRepository.findByTitle(title);
+    }
 }
