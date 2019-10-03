@@ -67,7 +67,7 @@ public class MovieController {
     @GetMapping("searchmovie")
     public ResponseEntity<?> getMovieByTitle(@RequestBody String title){
         try {
-            return new ResponseEntity<Movie>(movieService.findByTitle(title), HttpStatus.OK);
+            return new ResponseEntity<List<Movie>>(movieService.findByTitle(title), HttpStatus.OK);
         }
         catch (/*DatabaseTemporarilyUnavailable*/Exception ex) {
             return new ResponseEntity<String>(ex.getMessage(), HttpStatus.CONFLICT);

@@ -53,7 +53,7 @@ public class MovieServiceImpl implements MovieService {
     }
 
     @Override
-    public Movie findByTitle(String title) {
+    public List<Movie> findByTitle(String title) {
         return movieRepository.findByTitle(title);
     }
 }

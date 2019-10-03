@@ -17,5 +17,5 @@ public interface MovieService {
 
     public String deleteMovie(int movieId) /*throws MovieDoesNotExistException*/;
 
-    public Movie findByTitle(String title);
+    public List<Movie> findByTitle(String title);
 }

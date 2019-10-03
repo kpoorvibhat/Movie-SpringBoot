@@ -11,5 +11,5 @@ import java.util.List;
 @Repository
 public interface MovieRepository extends JpaRepository<Movie, Integer> {
     @Query("select m from #{#entityName} m where m.title = :title")
-    public Movie findByTitle(@Param("title") String title);
+    public List<Movie> findByTitle(@Param("title") String title);
 }
