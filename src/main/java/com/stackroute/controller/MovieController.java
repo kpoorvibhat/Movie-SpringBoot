@@ -1,6 +1,9 @@
 package com.stackroute.controller;
 
 import com.stackroute.domain.Movie;
+import com.stackroute.exceptions.DatabaseTemporarilyUnavailableException;
+import com.stackroute.exceptions.MovieAlreadyExistsException;
+import com.stackroute.exceptions.MovieDoesNotExistException;
 import com.stackroute.service.MovieService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,7 +27,7 @@ public class MovieController {
             movieService.saveMovie(movie);
             return new ResponseEntity<String>("Successfully Created", HttpStatus.CREATED);
         }
-        catch (Exception ex) {
+        catch (MovieAlreadyExistsException ex) {
             return new ResponseEntity<String>(ex.getMessage(), HttpStatus.CONFLICT);
         }
     }
@@ -34,7 +37,7 @@ public class MovieController {
         try {
             return new ResponseEntity<List<Movie>>(movieService.getAllMovies(), HttpStatus.OK);
         }
-        catch (Exception ex) {
+        catch (DatabaseTemporarilyUnavailableException ex) {
             return new ResponseEntity<String>(ex.getMessage(), HttpStatus.CONFLICT);
         }
     }
@@ -45,7 +48,7 @@ public class MovieController {
             movieService.updateMovie(movie);
             return new ResponseEntity<String>("Successfully Updated", HttpStatus.OK);
         }
-        catch (Exception ex) {
+        catch (MovieDoesNotExistException ex) {
             return new ResponseEntity<String>(ex.getMessage(), HttpStatus.CONFLICT);
         }
     }
@@ -56,7 +59,7 @@ public class MovieController {
             movieService.deleteMovie(movieId);
             return new ResponseEntity<String>("Successfully Deleted", HttpStatus.OK);
         }
-        catch (Exception ex) {
+        catch (MovieDoesNotExistException ex) {
             return new ResponseEntity<String>(ex.getMessage(), HttpStatus.CONFLICT);
         }
     }
