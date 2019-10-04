@@ -1,3 +1,4 @@
 # Movie-SpringBoot
 
-7.Global exception using Controller advice
+10. Create another service implementation TrackDummyServiceImpl. Use @Primary and
+@Qualifier annotations to specify which implementation to use.
