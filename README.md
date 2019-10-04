@@ -1,3 +1,3 @@
 # Movie-SpringBoot
-
-12. Swap in-memory H2 database with MySQL.
+10. Create another service implementation TrackDummyServiceImpl. Use @Primary and
+@Qualifier annotations to specify which implementation to use.
