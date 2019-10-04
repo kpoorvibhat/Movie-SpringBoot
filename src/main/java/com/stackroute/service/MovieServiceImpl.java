@@ -22,7 +22,7 @@ public class MovieServiceImpl implements MovieService {
     @Override
     public Movie saveMovie(Movie movie) throws MovieAlreadyExistsException {
        if (movieRepository.existsById(movie.getId())) {
-            throw new MovieAlreadyExistsException("Movie Already Exists");
+            throw new MovieAlreadyExistsException();
         }
         Movie savedMovie = movieRepository.save(movie);
 
@@ -31,14 +31,14 @@ public class MovieServiceImpl implements MovieService {
 
     @Override
     public List<Movie> getAllMovies() throws DatabaseTemporarilyUnavailableException {
-        if (movieRepository.findAll() == null) throw new DatabaseTemporarilyUnavailableException("Database Temporarily Unavailable");
+        if (movieRepository.findAll().isEmpty()) throw new DatabaseTemporarilyUnavailableException();
         return movieRepository.findAll();
     }
 
     @Override
     public Movie updateMovie(Movie movie) throws MovieDoesNotExistException {
-        if (movieRepository.existsById(movie.getId()))
-            throw new MovieDoesNotExistException("Movie Not Found");
+        if (!movieRepository.existsById(movie.getId()))
+            throw new MovieDoesNotExistException();
         Movie updatedMovie = movieRepository.save(movie);
         return updatedMovie;
     }
@@ -46,7 +46,7 @@ public class MovieServiceImpl implements MovieService {
     @Override
     public String deleteMovie(int movieId) throws MovieDoesNotExistException {
         if (!movieRepository.existsById(movieId)) {
-            throw new MovieDoesNotExistException("Movie Does Not Exist");
+            throw new MovieDoesNotExistException();
             }
         movieRepository.deleteById(movieId);
         return "Movie deleted";
@@ -55,7 +55,7 @@ public class MovieServiceImpl implements MovieService {
     @Override
     public List<Movie> findByTitle(String title) throws MovieDoesNotExistException{
         if (movieRepository.findByTitle(title) == null)
-            throw new MovieDoesNotExistException("Movie Not Found");
+            throw new MovieDoesNotExistException();
         return movieRepository.findByTitle(title);
     }
 }
