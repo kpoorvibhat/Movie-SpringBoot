@@ -1,4 +1,4 @@
 # Movie-SpringBoot
 
-10. Create another service implementation TrackDummyServiceImpl. Use @Primary and
-@Qualifier annotations to specify which implementation to use.
+11. Use @Profile to run the application with the existing service implementation, and the new
+TrackDummyServiceImpl implementation.
