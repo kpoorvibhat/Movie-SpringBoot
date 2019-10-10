@@ -1,4 +1,3 @@
 # Movie-SpringBoot
 
-10. Create another service implementation TrackDummyServiceImpl. Use @Primary and
-@Qualifier annotations to specify which implementation to use.
+Use spring developer tool and verify that changes are getting reflected without the need of restarting the server
