@@ -1,4 +1,4 @@
 # Movie-SpringBoot
 
-10. Create another service implementation TrackDummyServiceImpl. Use @Primary and
-@Qualifier annotations to specify which implementation to use.
+13. Create two additional properties file application-dev.properties that contains configuration for
+H2 and application-prod.properties that contains configurations for MySQL.
