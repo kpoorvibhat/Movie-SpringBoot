@@ -3,8 +3,6 @@ package com.stackroute.startup;
 import com.stackroute.domain.Movie;
 import com.stackroute.repository.MovieRepository;
 import com.stackroute.service.MovieService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;

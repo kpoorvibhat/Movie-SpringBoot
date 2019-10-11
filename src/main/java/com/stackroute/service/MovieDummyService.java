@@ -13,7 +13,7 @@ import java.util.List;
 
 
 @Service
-@Profile("dummy")
+@Profile(value = "dummy")
 public class MovieDummyService implements MovieService {
     MovieRepository movieRepository;
 

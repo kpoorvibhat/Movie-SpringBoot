@@ -1,15 +1,19 @@
 package com.stackroute.domain;
 
+import com.fasterxml.jackson.annotation.JsonSubTypes;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.Type;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+//import org.hibernate.annotations.Type;
+//
+//import javax.persistence.Entity;
+//import javax.persistence.Id;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-
-@Entity
+//@Entity
+@Document(collection = "Movie")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -19,7 +23,7 @@ public class Movie {
     @Id
     private Integer id;
     private String title;
-    @Type(type = "org.hibernate.type.NumericBooleanType")
+//    @JsonSubTypes.Type(type = "org.hibernate.type.NumericBooleanType")
     private boolean adult;
     private String overview;
 
