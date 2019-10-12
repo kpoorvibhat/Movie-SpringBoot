@@ -24,6 +24,7 @@ public class MovieServiceImpl implements MovieService {
         System.out.println("Movie Service");
     }
 
+    //This method saves a new movie to the database
     @Override
     public Movie saveMovie(Movie movie) throws MovieAlreadyExistsException {
        if (movieRepository.existsById(movie.getId())) {
@@ -34,6 +35,7 @@ public class MovieServiceImpl implements MovieService {
         return savedMovie;
     }
 
+    //This method retrieves all the movies from the database
     @Override
     public List<Movie> getAllMovies() throws DatabaseTemporarilyUnavailableException {
         if (movieRepository.findAll().isEmpty()) throw new DatabaseTemporarilyUnavailableException();
@@ -42,6 +44,7 @@ public class MovieServiceImpl implements MovieService {
         return movieRepository.findAll();
     }
 
+    //This method updates the movie details
     @Override
     public Movie updateMovie(Movie movie) throws MovieDoesNotExistException {
         if (!movieRepository.existsById(movie.getId()))
@@ -51,6 +54,7 @@ public class MovieServiceImpl implements MovieService {
         return updatedMovie;
     }
 
+    //This method deletes the movie by Id from the database
     @Override
     public String deleteMovie(int movieId) throws MovieDoesNotExistException {
         if (!movieRepository.existsById(movieId)) {
@@ -61,6 +65,7 @@ public class MovieServiceImpl implements MovieService {
         return "Movie deleted";
     }
 
+    //This method searches for the movie service by its name
     @Override
     public List<Movie> findByTitle(String title) throws MovieDoesNotExistException{
         if (movieRepository.findByTitle(title) == null)

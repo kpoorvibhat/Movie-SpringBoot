@@ -23,6 +23,7 @@ public class MovieDummyService implements MovieService {
         System.out.println("Dummy Service");
     }
 
+    //Method to save a movie
     @Override
     public Movie saveMovie(Movie movie) throws MovieAlreadyExistsException {
         if (movieRepository.existsById(movie.getId())) {
@@ -33,6 +34,7 @@ public class MovieDummyService implements MovieService {
         return savedMovie;
     }
 
+    //Method to retrieve all the movies from the database
     @Override
     public List<Movie> getAllMovies() throws DatabaseTemporarilyUnavailableException {
         if (movieRepository.findAll().isEmpty()) throw new DatabaseTemporarilyUnavailableException();
@@ -40,6 +42,7 @@ public class MovieDummyService implements MovieService {
         return movieRepository.findAll();
     }
 
+    //Method to update movie
     @Override
     public Movie updateMovie(Movie movie) throws MovieDoesNotExistException {
         if (!movieRepository.existsById(movie.getId()))
@@ -49,6 +52,7 @@ public class MovieDummyService implements MovieService {
         return updatedMovie;
     }
 
+    //Method to delete the movie from the database by its id
     @Override
     public String deleteMovie(int movieId) throws MovieDoesNotExistException {
         if (!movieRepository.existsById(movieId)) {
@@ -59,6 +63,7 @@ public class MovieDummyService implements MovieService {
         return "Movie deleted";
     }
 
+    //Method to find the movie by its name
     @Override
     public List<Movie> findByTitle(String title) throws MovieDoesNotExistException{
         if (movieRepository.findByTitle(title) == null)
