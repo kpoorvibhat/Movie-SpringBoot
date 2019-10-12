@@ -1,9 +1,6 @@
 package com.stackroute.controller;
 
 import com.stackroute.domain.Movie;
-/*import com.stackroute.exceptions.DatabaseTemporarilyUnavailableException;
-import com.stackroute.exceptions.MovieAlreadyExistsException;
-import com.stackroute.exceptions.MovieDoesNotExistException;*/
 import com.stackroute.exceptions.DatabaseTemporarilyUnavailableException;
 import com.stackroute.exceptions.MovieAlreadyExistsException;
 import com.stackroute.exceptions.MovieDoesNotExistException;
